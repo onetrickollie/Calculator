@@ -30,14 +30,16 @@ def main():
     except ZeroDivisionError:
         results["division"] = "Error: Division by zero is not allowed."
 
-    output_file = input("Enter the name of the JSON file to save the results: ")
+    file_name = input("Enter the name of the JSON file to save the results: ")
 
     try:
-        with open(output_file, 'w') as json_file:
+        with open(file_name, 'w') as json_file:
             json.dump(results, json_file)
-        print("Results saved to", output_file)
+        print("Results saved to", file_name)
     except Exception as exc:
         print("Error: Failed to save results to the JSON file.", str(exc))
+    
+    json_file.close()
 
 if __name__ == "__main__":
     main()
